@@ -14,7 +14,8 @@ Sys.setenv(SPOTIFY_CLIENT_SECRET = 'YOUR_CLIENT_SECRET')
 
 juditha <-
     get_track_audio_features(
-        c('2M5b9YLAgFroqWzeaZf86e', '3DBKc4ioGnMQLlbGQcFDIO'))
+        c('2M5b9YLAgFroqWzeaZf86e', '3DBKc4ioGnMQLlbGQcFDIO')
+    )
 alla <- get_album_tracks('7oI0E3DdTbD85rhMg19GSU')
 gilberto <- get_artist_audio_features('gilberto gil')
 disney <- get_playlist_audio_features('128899670', '5NtjgKz4doejP5HJtKXFcS')
