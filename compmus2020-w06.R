@@ -24,3 +24,11 @@ disney <- get_playlist_audio_features('128899670', '5NtjgKz4doejP5HJtKXFcS')
 
 gilberto %>% summarise(M = mean(danceability), SD = sd(danceability))
 disney %>% summarise(M = mean(danceability), SD = sd(danceability))
+
+# Questions to answer during the lab
+#
+# 1. Is 'Let It Go' typical or atypical of Disney hits, with respect to the
+#    features in the Spotify API?
+# 2. What are the similarities and differences between the 'This is Cazwell'
+#    and 'This is Eminem' playlists on Spotify? (Be warned that the lyrics are
+#    explicit, like much hip hop, but you don't need to listen.)
