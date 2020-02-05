@@ -15,3 +15,5 @@ I make italics *like this*.
 I make bold **like this**.
 
 I've now added something to this page.
+
+`this is a code example`
