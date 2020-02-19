@@ -56,7 +56,7 @@ awards %>%                       # Start with awards.
             x = valence,
             y = energy,
             size = loudness,
-            colour = factor(mode)
+            colour = factor(mode, c(1, 0), c("Major", "Minor"))
         )
     ) +
     geom_point() +               # Scatter plot.
