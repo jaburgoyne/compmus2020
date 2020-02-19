@@ -1,19 +1,9 @@
-# I am a big title
+# New nonsense for this week
 
-## I am a normal heading
+Here is an example of a new version of my README file, which I want to push to Github.
 
-### I am a sub-heading
+# Plots
 
-#### I am a sub-sub-heading
+I want you to be able to see a plot!
 
-Underneath these headings, I just type normal text.
-
-I leave a blank line between paragraphs.
-
-I make italics *like this*.
-
-I make bold **like this**.
-
-I've now added something to this page.
-
-`this is a code example`
+![Plot](grammys-edisons.png)

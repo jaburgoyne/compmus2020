@@ -51,12 +51,15 @@ award_labels <-
     )
 
 awards %>%                       # Start with awards.
+    mutate(
+        mode = ifelse(mode == 0, 'Minor', 'Major')
+    ) %>%
     ggplot(                      # Set up the plot.
         aes(
             x = valence,
             y = energy,
             size = loudness,
-            colour = factor(mode, c(1, 0), c("Major", "Minor"))
+            colour = mode
         )
     ) +
     geom_point() +               # Scatter plot.
