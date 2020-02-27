@@ -35,8 +35,8 @@ Depending on your topic, you may want to start with a text-based opening like th
 
 This storyboard contains further examples from each week to inspire you. For more detailed code examples from each week, check the [repository page](https://github.com/jaburgoyne/compmus2019) or use the following links for rendered R Markdown files.
 
-- [Week 8](compmus2019-w08.nb.html)
-- [Week 9](compmus2019-w09.nb.html)
+- [Week 8](compmus2020-w08.nb.html)
+- [Week 9](compmus2020-w09.nb.html)
 
 ***
 
