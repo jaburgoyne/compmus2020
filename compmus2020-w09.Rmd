@@ -73,7 +73,7 @@ bzt <-
         timbre = 
             map(segments, 
                 compmus_summarise, timbre, 
-                method = 'mean'))
+                method = 'rms', norm = 'euclidean'))
 ```
 
 ### Cepstrogram
