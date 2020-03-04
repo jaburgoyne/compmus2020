@@ -4,7 +4,8 @@ author: "John Ashley Burgoyne"
 date: "26 February 2020"
 output:
     html_notebook:
-        theme: flatly
+        # theme: flatly
+        css: bootstrap.min.css
 ---
 
 ## Set-up
