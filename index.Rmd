@@ -312,7 +312,7 @@ The two self-similarity matrices at the right, each summarised at the bar level 
 
 ### Truck-driver modulations in the Year 2525 [tonal analysis]
 
-```{r}
+```{r twenty-five}
 circshift <- function(v, n) {if (n == 0) v else c(tail(v, n), head(v, -n))}
                                     
 major_key <- 
@@ -364,7 +364,8 @@ twenty_five <-
     scale_fill_viridis_c(option = 'E') +
     theme_minimal() +
     labs(x = 'Time (s)', y = '', fill = 'Distance')
-ggplotly(twenty_five)
+#ggplotly(twenty_five)
+twenty_five
 ```
 
 ***
