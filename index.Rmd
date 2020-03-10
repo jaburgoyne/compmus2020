@@ -119,6 +119,64 @@ The *x* axis shows valence and the *y* axis shows Spotify's ‘energy’ feature
 
 The visualisation shows that in 2019, the pop music at the Grammys was (according to Spotify) rather angrier and rather louder than the music at the Edisons.
 
+### Bonus Tab: Do the Dutch really listen to happier music?
+
+```{r happy}
+top_50_nl <- get_playlist_audio_features('spotify', '37i9dQZEVXbKCF6dqVpDkS')
+top_50_be <- get_playlist_audio_features('spotify', '37i9dQZEVXbJNSeeHswcKB')
+top_50_world <- get_playlist_audio_features('spotify', '37i9dQZEVXbMDoHDwVN2tF')
+top_50s <-
+    top_50_nl %>% mutate(country = 'The Netherlands') %>%
+    bind_rows(top_50_be %>% mutate(country = 'Belgium')) %>% 
+    bind_rows(top_50_world %>% mutate(country = 'Global')) %>% 
+    mutate(
+      country = fct_relevel(country, 'Global', 'The Netherlands', 'Belgium')
+    )
+february_dip <- 
+    top_50s %>% 
+    ggplot(                      # Set up the plot.
+        aes(
+            x = valence,
+            y = energy,
+            size = track.popularity,
+            colour = danceability,
+            label = track.name   # Labels will be interactively visible.
+        )
+    ) +
+    geom_point() +               # Scatter plot.
+    geom_rug(size = 0.1) +       # Add 'fringes' to show data distribution.
+    facet_wrap(~ country) +      # Separate charts per country.
+    scale_x_continuous(          # Fine-tune the x axis.
+        limits = c(0, 1),
+        breaks = c(0, 0.50, 1),  # Use grid-lines for quadrants only.
+        minor_breaks = NULL      # Remove 'minor' grid-lines.
+    ) +
+    scale_y_continuous(          # Fine-tune the y axis in the same way.
+        limits = c(0, 1),
+        breaks = c(0, 0.50, 1),
+        minor_breaks = NULL
+    ) +
+    scale_colour_viridis_c(      # Use the cividis palette
+       option = "E",             # Qualitative set.
+       alpha = 0.8,              # Include some transparency
+       guide = 'none'
+    ) +
+    scale_size_continuous(       # Fine-tune the sizes of each point.
+        guide = "none"           # Remove the legend for size.
+    ) +
+    theme_light() +              # Use a simpler them.
+    labs(                        # Make the titles nice.
+        x = "Valence",
+        y = "Energy"
+    )
+
+ggplotly(february_dip)
+```
+
+***
+
+In March 2019, [The Economist](https://www.economist.com/graphic-detail/2020/02/08/data-from-spotify-suggest-that-listeners-are-gloomiest-in-february?fsrc=scn/fb/te/bl/ed/sadsongssaysomuchdatafromspotifysuggestthatlistenersaregloomiestinfebruarygraphicdetail) published a graphic showing a worldwide dip in the emotional valence of the music to people people listen around February each year. The graphic also broke down the emotional valence for every month of the year for a selection of Spotify markets, and it revealed quite a surprise: although overall, there seemed to be two large groups, with Latin America and Spain listening to more positively valenced music than most of the rest of the world, the Netherlands stood on its own somewhere in between these two extremes. This graphic compares Spotify Top 50 in the Netherlands against Belgium, a more typical neighbouring country, as well as the worldwide average, on the standard valence--arousal model. More popular songs (worldwide) have larger dots; more danceable songs are yellow.
+
 ### The Tallis Scholars sing Josquin more slowly than La Chapelle Royale -- except for one part [chroma features].
 
 ```{r tallis}
