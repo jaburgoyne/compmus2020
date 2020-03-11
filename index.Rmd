@@ -39,6 +39,7 @@ This storyboard contains further examples from each week to inspire you. For mor
 - [Week 8](compmus2020-w08.nb.html)
 - [Week 9](compmus2020-w09.nb.html)
 - [Week 10](compmus2020-w10.nb.html)
+- [Week 11](compmus2020-w11.nb.html)
 
 ***
 
