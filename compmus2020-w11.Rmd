@@ -1,5 +1,5 @@
 ---
-title: "Week 11 · Classification"
+title: "Week 11 · Novelty Functions and Tempograms"
 author: "John Ashley Burgoyne"
 date: "11 March 2020"
 output: 
