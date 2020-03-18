@@ -443,7 +443,7 @@ indie_knn <-
 predict_knn_reduced <- function(split) {
     fit(
         indie_knn, 
-        playlist ~ c01 + c02 + energy + danceability + tempo, 
+        playlist ~ c01 + liveness + acousticness + c02 + energy, 
         data = analysis(split)) %>% 
     predict(assessment(split), type = 'class') %>%
     bind_cols(assessment(split))
@@ -460,13 +460,13 @@ The mosaic at the left shows the performance of a classifier trying to distingui
 
   - Timbre Component 1 (loudness),
   - Timbre Component 2 (brightness),
-  - energy,
-  - danceability, and
-  - tempo.
+  - liveness,
+  - acousticness, and
+  - energy.
   
 After these five features, there is a substantial drop in importance. The mosaic displays the results, after 10-fold cross-validation, of a nearest-neighbour classifier with just these five features. 
 
-The performance of the classifier is mediocre: overall classification accuracy is 57 percent, with a J-index of 0.32. Although these features are reasonably effective at identifying the party and pop playlists, the precision of the classifier's predictions of workout tracks is very low: when the classifier predicts that a track is a workout track, it is actually slightly more likely to be a party track. 
+The performance of the classifier is mediocre: overall classification accuracy is 55 percent, with a J-index of 0.32. Although these features are reasonably effective at identifying the party and pop playlists, the precision of the classifier's predictions of workout tracks is very low: when the classifier predicts that a track is a workout track, it is just as likely to be a party or pop track. 
 
 Either Spotify's Indie Workout playlist is not as tailored to workouts as its names would lead users to believe, or we need features beyond the Spotify itself to make the distinction. 
 
