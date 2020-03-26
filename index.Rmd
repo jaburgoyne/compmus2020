@@ -112,8 +112,8 @@ angry <-
         y = "Energy",
         colour = "Mode"
     )
-
-ggplotly(angry)
+# ggplotly(angry)
+angry
 ```
 
 ***
@@ -514,11 +514,11 @@ halloween_juice <-
     prep(halloween %>% mutate(track.name = str_trunc(track.name, 20))) %>% 
     juice %>% 
     column_to_rownames('track.name')
-tmp <- grDevices::dev.size("px")
-heatmaply(
+ggheatmap(
     halloween_juice,
     hclustfun = protoclust,
-    dist_method = 'manhattan')
+    dist_method = 'manhattan'
+)
 ```
 
 ***
