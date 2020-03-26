@@ -4,12 +4,13 @@ author: "John Ashley Burgoyne"
 date: "11 March 2020"
 output: 
     html_notebook:
-        theme: flatly
+        # theme: flatly
+        css: 'css/bootstrap-theme.min.css'
 ---
 
 ## Set-up
 
-```{r}
+```{r, results = 'hide'}
 library(tidyverse)
 library(spotifyr)
 library(compmus)

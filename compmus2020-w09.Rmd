@@ -5,12 +5,12 @@ date: "26 February 2020"
 output:
     html_notebook:
         # theme: flatly
-        css: bootstrap.min.css
+        css: 'css/bootstrap-theme.min.css'
 ---
 
 ## Set-up
 
-```{r}
+```{r, results = 'hide'}
 library(tidyverse)
 library(spotifyr)
 library(compmus)

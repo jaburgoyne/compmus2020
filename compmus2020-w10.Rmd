@@ -4,14 +4,15 @@ author: "John Ashley Burgoyne"
 date: "4 March 2020"
 output: 
     html_notebook:
-        theme: flatly
+        # theme: flatly
+        css: 'css/bootstrap-theme.min.css'
 ---
 
 ## Set-up
 
 Install the updated `compmus` package by running `remotes::install_github('jaburgoyne/compmus')`. 
 
-```{r}
+```{r, results = 'hide'}
 library(tidyverse)
 library(spotifyr)
 library(compmus)

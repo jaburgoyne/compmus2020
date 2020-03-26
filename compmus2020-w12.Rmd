@@ -4,7 +4,8 @@ author: "John Ashley Burgoyne"
 date: "18 March 2020"
 output: 
     html_notebook:
-        theme: flatly
+        # theme: flatly
+        css: 'css/bootstrap-theme.min.css'
 ---
 
 ## Set-up
@@ -13,7 +14,7 @@ We will be using the developing `tidymodels` framework this week for integrating
 
 As you work through this lab, you will occasionally get error messages asking you to install other packages, too. Install whatever R asks for from the Tools menu, and then try running the chunk again.
 
-```{r}
+```{r, results = 'hide'}
 library(tidyverse)
 library(tidymodels)
 library(protoclust)
@@ -121,7 +122,7 @@ indie_cv <- indie_class %>% vfold_cv(5)
 
 Your DataCamp tutorials this week introduced four classical algorithms for classification: $k$-nearest neighbour, naive Bayes, logistic regression, and decision trees. Other than naive Bayes, all of them can be implemented more simply in `tidymodels`. In order to use cross-validation, however, we need to write some local helper functions to `fit` the classifier on the training sets, `predict` the labels for the test/validation sets, and `bind` the results to the original data.
 
-#### $k$-Nearest Neighbour
+#### *k*-Nearest Neighbour
 
 A $k$-nearest neighbour classifier often works just fine with only one neighbour. It is very sensitive to the choice of features, however. Let's check the performance as a baseline and come back to it later.
 
@@ -407,17 +408,19 @@ kmeans(halloween_juice, 4)
 
 ### Heatmaps
 
-Especially for storyboards, it can be helpful to visualise hierarchical clusterings along with heatmaps of feature values. We can do that with `heatmaply`. Although the interactive heatmaps are flashly, think carefully when deciding whether this representation is more helpful for your storyboard than the simpler dendrograms above. 
+Especially for storyboards, it can be helpful to visualise hierarchical clusterings along with heatmaps of feature values. We can do that with `heatmaply`. Although the interactive heatmaps are flashy, think carefully when deciding whether this representation is more helpful for your storyboard than the simpler dendrograms above. 
 
 ```{r}
-grDevices::dev.size("px")
+dev.new()
 heatmaply(
     halloween_juice,
     hclustfun = hclust,
     # hclustfun = protoclust,
     # Comment out the hclust_method line when using protoclust.
     hclust_method = 'average',
-    dist_method = 'euclidean')
+    dist_method = 'euclidean'
+) %>% 
+  layout(autosize = F, width = 800, height = 500)
 ```
 
 **Which features seem to be the most and least useful for the clustering? What happens if you re-run this section of the notebook using only the best features?**
