@@ -5,8 +5,8 @@ date:   'February--March 2020'
 output: 
     flexdashboard::flex_dashboard:
         storyboard: true
-        theme: flatly
-        # css: bootstrap.min.css
+        # theme: flatly
+        css: ['css/bootstrap-theme.min.css', 'css/navbar.css']
 ---
 
 ```{r setup}
@@ -381,7 +381,7 @@ The piece does not follow common-era tonal conventions, and the key estimates ar
 
 ### Classifying independent workouts
 
-```{r}
+```{r workouts}
 pop <- 
     get_playlist_audio_features('spotify', '37i9dQZF1DWWEcRhUVtL8n') %>% 
     add_audio_analysis
@@ -472,7 +472,7 @@ Either Spotify's Indie Workout playlist is not as tailored to workouts as its na
 
 ### What are the components of a Hallowe'en playlist?
 
-```{r}
+```{r halloween}
 halloween <- 
     get_playlist_audio_features('bnfcollection', '1vsoLSK3ArkpaIHmUaF02C') %>% 
     add_audio_analysis %>% 
